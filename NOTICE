@@ -1,0 +1,20 @@
+Required Notice: Copyright 2026 Ryan Weaver
+
+Flight Mill is available under the PolyForm Noncommercial License 1.0.0
+in LICENSE. It permits academic research, teaching and other permitted
+noncommercial uses. The license also expressly permits use by educational
+institutions and public research organizations regardless of funding source.
+Uses outside its permitted purposes require a separate license from the owner.
+
+This license applies to the original Flight Mill application, firmware, tests,
+scripts and accompanying documentation and assets offered in this repository.
+It does not change the licenses of third-party components. In particular,
+the pySerial-derived Windows serial implementation retains its BSD license
+(app/src/flightmill/acquisition/pyserial-LICENSE.txt). Bundled dependencies
+retain their respective terms; see app/packaging/THIRD_PARTY_NOTICES.txt.
+Python and other bundled component notices accompany Windows distributions.
+
+Research observations, measurements and publications produced with Flight Mill
+are not licensed by these software terms merely because this software was used.
+
+Project: https://github.com/ryanjweaver/flight-mill

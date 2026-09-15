@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "flightmill"
+version = "0.2.0.dev0"
+description = "Single-channel Flight Mill V1 acquisition service"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Ryan Weaver"}]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "pydantic==2.13.4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy==1.17.1",
+  "pytest==8.4.2",
+  "pytest-asyncio==1.1.0",
+  "ruff==0.12.11",
+  "httpx==0.28.1",
+]
+app = [
+  "fastapi==0.116.1",
+  "jinja2==3.1.6",
+  "pyserial==3.5",
+  "pywebview==6.0",
+  "uvicorn==0.35.0",
+  "websockets==15.0.1",
+]
+packaging = ["pyinstaller==6.16.0"]
+
+[project.gui-scripts]
+flightmill = "flightmill.desktop.bootstrap:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app/src/flightmill", "simulator"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true

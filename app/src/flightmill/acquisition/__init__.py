@@ -1,0 +1,1 @@
+"""Acquisition-domain contracts."""

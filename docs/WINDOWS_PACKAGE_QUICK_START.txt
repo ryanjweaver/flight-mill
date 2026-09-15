@@ -1,0 +1,70 @@
+FLIGHT MILL - WINDOWS 11 x64 TEST PACKAGE
+
+This package contains the approved GUI and USB connection fixes. It includes
+Python and the application libraries. You do not need Python, Node, Git,
+PlatformIO or a compiler on the other computer.
+
+INSTALL
+1. Copy the ZIP to the other Windows 11 Intel/AMD 64-bit computer.
+2. Use Extract All and choose a local folder OUTSIDE OneDrive or other cloud
+   sync folders, for example C:\FlightMillInstall. If you cannot create that
+   folder, enter %LOCALAPPDATA% in File Explorer's address bar, create a folder
+   named FlightMillSetup there, and extract into that folder.
+   Avoid extracting to Desktop or Documents when those folders are backed up
+   by OneDrive. The ZIP itself can be stored anywhere; it is the extracted
+   folder containing Install-FlightMill.cmd that matters. Do not run inside
+   the ZIP, and leave all extracted files together.
+3. Double-click Install-FlightMill.cmd. Internet is needed only if the Microsoft
+   Edge WebView2 Runtime is missing. The installer verifies Microsoft's signature
+   before running its installer. Windows 11's .NET Framework is also checked.
+4. Wait for the successful install message and dependency self-check. Installation
+   is per-user; no existing recordings or previous application builds are removed.
+5. Open the new Flight Mill shortcut. The installer does not start the app for you.
+
+IF SETUP SAYS "Package paths must not contain links or junctions"
+The installer detected special filesystem metadata on the extracted folder or
+a file inside it. OneDrive-managed folders can have this metadata even when
+they look like ordinary folders. Extract a fresh copy of the original ZIP into
+the local folder described in step 2, then run Install-FlightMill.cmd there.
+This restriction concerns the extracted installer files. The Desktop shortcut
+created by a successful installation can stay on the Desktop, including a
+OneDrive-backed Desktop. A working installation does not need to be reinstalled.
+
+Recordings use your Documents\FlightMill\Trials folder, independently of the
+installation files. The app can select another output folder in Instrument
+settings. Keep one app instance in control of a device and recording directory.
+
+HARDWARE
+The existing tested ESP32-S3 prototype should keep firmware 0.1.5-dev / Protocol 1.
+Moving it to another computer does not require another firmware flash. Windows
+may assign a different COM number. Use USB serial device and Find serial ports
+if needed, then select the actual port or leave it blank for unique-candidate
+automatic selection. Ordinary Connect selected source is the primary connection
+path. Connect after USB reconnect remains available as the guided recovery path.
+
+SECOND-COMPUTER OPERATOR CHECK
+With the device idle, plug it in and wait at least 60 seconds before opening the
+newly installed Flight Mill shortcut. Confirm the approved GUI, USB serial default
+and Trial duration in Trial setup. Click Connect selected source once. Expect
+ready/IDLE quickly, your device's ID, firmware 0.1.5-dev, Protocol 1, and no errors.
+Disconnect, leave USB plugged in, wait 60 seconds, and Connect again. Expect the
+same result. Separately check guided unplug/replug if the ordinary path fails.
+No recording is needed for this first installation and connection check.
+Report Windows version, installer outcome, displayed device/firmware, both
+connection outcomes and any errors. Keep diagnostic logs if something fails.
+
+If Windows blocks the unsigned Flight Mill package, report the exact message.
+Managed computers may require your IT administrator's approval. Do not disable
+security software or system policies. Microsoft runtimes remain Microsoft-signed;
+the Flight Mill application and install wrapper are currently unsigned.
+
+GITHUB / DISTRIBUTION
+Source and downloads: https://github.com/ryanjweaver/flight-mill
+Copyright 2026 Ryan Weaver. Flight Mill uses the PolyForm Noncommercial License
+1.0.0 in LICENSE, with scope and attribution in NOTICE. Academic research,
+teaching and other permitted noncommercial uses are free. Uses outside the
+license's permitted purposes require a separate license from the owner.
+Third-party components retain their own licenses.
+
+The manifest identifies this exact package, bundled versions, source hashes and
+file hashes. THIRD_PARTY_NOTICES.txt and PYTHON_LICENSE.txt accompany the bundle.

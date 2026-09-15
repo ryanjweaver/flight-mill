@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flightmill.local/schema/serial_protocol_v1.schema.json",
+  "title": "FlightMill Serial Protocol v1 message",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol", "protocol_version", "type", "device_id", "firmware_version"],
+  "properties": {
+    "protocol": {"const": "flightmill"},
+    "protocol_version": {"const": 1},
+    "type": {
+      "enum": ["ping", "get_status", "arm", "start", "stop", "disarm", "set_config", "self_test", "hello", "ack", "error", "status", "heartbeat", "sensor_state", "trial_armed", "trial_started", "event", "trial_stopped"]
+    },
+    "device_id": {"type": "string", "minLength": 1},
+    "firmware_version": {"type": "string", "minLength": 1},
+    "request_id": {"type": ["string", "null"], "format": "uuid"},
+    "message_seq": {"type": "integer", "minimum": 0},
+    "boot_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "session_id": {"type": ["string", "null"], "format": "uuid"},
+    "config": {"$ref": "#/$defs/config"},
+    "state": {"enum": ["BOOTING", "IDLE", "ARMED", "RECORDING", "STOPPING", "COMPLETE", "ERROR"]},
+    "command": {"enum": ["ping", "get_status", "arm", "start", "stop", "disarm", "set_config", "self_test"]},
+    "reset_reason": {"type": "string", "minLength": 1, "maxLength": 64},
+    "code": {"type": "string", "minLength": 1, "maxLength": 64},
+    "message": {"type": "string", "minLength": 1, "maxLength": 256},
+    "sensor_state": {"enum": [0, 1]},
+    "event_n": {"type": "integer", "minimum": 0},
+    "event_us": {"type": "integer", "minimum": 0},
+    "dt_us": {"type": "integer", "minimum": 0},
+    "dropped_events": {"type": "integer", "minimum": 0},
+    "uptime_ms": {"type": "integer", "minimum": 0},
+    "start_source": {"enum": ["ui", "physical_button"]},
+    "accepted_event_count": {"type": "integer", "minimum": 0},
+    "duration_us": {"type": "integer", "minimum": 0},
+    "stop_reason": {"type": "string", "minLength": 1, "maxLength": 64},
+    "stop_source": {"enum": ["ui", "physical_button", "automatic"]}
+  },
+  "$defs": {
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min_event_interval_us"],
+      "properties": {"min_event_interval_us": {"type": "integer", "enum": [50000, 150000], "default": 150000}}
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {"type": {"enum": ["ping", "get_status", "arm", "start", "stop", "disarm", "set_config", "self_test"]}},
+      "required": ["request_id"]
+    },
+    {
+      "properties": {"type": {"enum": ["hello", "ack", "error", "status", "heartbeat", "sensor_state", "trial_armed", "trial_started", "event", "trial_stopped"]}},
+      "required": ["message_seq", "boot_id"]
+    }
+  ],
+  "allOf": [
+    {"if": {"properties": {"type": {"const": "arm"}}}, "then": {"required": ["session_id", "config"]}},
+    {"if": {"properties": {"type": {"enum": ["start", "stop", "disarm"]}}}, "then": {"required": ["session_id"]}},
+    {"if": {"properties": {"type": {"const": "set_config"}}}, "then": {"required": ["config"]}},
+    {"if": {"properties": {"type": {"const": "hello"}}}, "then": {"required": ["state", "reset_reason"]}},
+    {"if": {"properties": {"type": {"const": "ack"}}}, "then": {"required": ["request_id", "command", "state"]}},
+    {"if": {"properties": {"type": {"const": "error"}}}, "then": {"required": ["code", "message", "state"]}},
+    {"if": {"properties": {"type": {"enum": ["status", "heartbeat"]}}}, "then": {"required": ["state", "sensor_state", "event_n", "dropped_events", "uptime_ms"]}},
+    {"if": {"properties": {"type": {"const": "sensor_state"}}}, "then": {"required": ["state", "sensor_state"]}},
+    {"if": {"properties": {"type": {"const": "trial_armed"}}}, "then": {"required": ["state", "session_id", "config"]}},
+    {"if": {"properties": {"type": {"const": "trial_started"}}}, "then": {"required": ["state", "session_id", "start_source"]}},
+    {"if": {"properties": {"type": {"const": "event"}}}, "then": {"required": ["state", "session_id", "event_n", "event_us", "dt_us", "dropped_events"], "properties": {"event_n": {"minimum": 1}}}},
+    {"if": {"properties": {"type": {"const": "trial_stopped"}}}, "then": {"required": ["state", "session_id", "accepted_event_count", "dropped_events", "duration_us", "stop_reason", "stop_source"]}}
+  ]
+}

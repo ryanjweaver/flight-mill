@@ -1,0 +1,3 @@
+event_n,time_ms,time_s,dt_ms,dt_s,revolutions,cumulative_distance_m,speed_m_s,dropped_events
+1,0.000,0.000000,0.000,0.000000,1,0.6283185307,,0
+2,1000.000,1.000000,1000.000,1.000000,2,1.2566370614,0.6283185307,0

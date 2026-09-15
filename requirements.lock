@@ -1,0 +1,4 @@
+# Initial direct dependency lock for the contract-first development slice.
+# Regenerate with hashes before a distributable Windows build.
+pydantic==2.13.4
+pyserial==3.5

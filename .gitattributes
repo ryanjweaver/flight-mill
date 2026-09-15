@@ -1,0 +1,4 @@
+# Preserve reviewed evidence bytes and original tool-output whitespace.
+hardware/validation/review/** -text -whitespace
+# Sample raw-CSV hashes refer to LF bytes, including on Windows checkouts.
+sample_data/** text eol=lf

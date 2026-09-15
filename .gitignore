@@ -1,0 +1,42 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+build/
+dist/
+release/*
+!release/README.md
+.pio/
+.pio-core/
+firmware/releases/*
+!firmware/releases/README.md
+hardware/fabrication/*
+!hardware/fabrication/README.md
+*.partial
+*.partial.*
+*.recovered
+*.tmp
+*.log
+.Rhistory
+.DS_Store
+Thumbs.db
+data/
+.runtime/
+Flight Mill.lnk
+
+# Raw local bench originals are preserved separately from sanitized review copies.
+hardware/validation/evidence/
+hardware/validation/review_incomplete_*/
+
+# Local credentials must never be committed.
+.env
+.env.*
+!.env.example
+*.pem
+*.key

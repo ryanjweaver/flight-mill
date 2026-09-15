@@ -1,0 +1,55 @@
+{
+  "created_at_utc": "2026-09-15T20:16:34.066515+00:00",
+  "package_id": "FlightMill-0.2.0-preview-20260915-191543-win11-x64-public1",
+  "zip": "FlightMill-Windows11-x64-20260915-public1.zip",
+  "bytes": 19959912,
+  "sha256": "2eff1b5d71044da75bb8386193332b967fea83627b35d2ffa3dd367c51ef7ca5",
+  "manifest_sha256": "fdf677453af3afca7ca32731d8110f9e28ae13a86be12a9742f88e6db1eecf4d",
+  "file_count": 410,
+  "license": "PolyForm Noncommercial 1.0.0",
+  "copyright": "Copyright 2026 Ryan Weaver",
+  "project_url": "https://github.com/ryanjweaver/flight-mill",
+  "revision_kind": "Public license, notices, README and package identity only; no application or installer code change",
+  "base_zip": "FlightMill-Windows11-x64-20260915-docs1.zip",
+  "base_zip_sha256": "78e3d1e067c4bfb180231eb90617789d366ba74c0199448892b4d7a5326dfbd3",
+  "changed_archive_entries": [
+    "FlightMill-Windows11-x64/FlightMill/_internal/flightmill/build_info.json",
+    "FlightMill-Windows11-x64/README.txt",
+    "FlightMill-Windows11-x64/manifest.json"
+  ],
+  "added_archive_entries": [
+    "FlightMill-Windows11-x64/LICENSE",
+    "FlightMill-Windows11-x64/NOTICE"
+  ],
+  "removed_archive_entries": [
+    "FlightMill-Windows11-x64/LICENSE_DECISION_REQUIRED.md"
+  ],
+  "byte_identical_entries": 406,
+  "application_libraries_and_installers_byte_identical": true,
+  "source_and_ui_hashes_preserved": true,
+  "verification": {
+    "zip_crc_and_manifest": "PASS",
+    "preserved_installer_manifest_and_selfcheck_validation": "PASS",
+    "frozen_self_check": {
+      "exit_code": 0,
+      "ok": true,
+      "frozen": true,
+      "matching_package_id": true,
+      "checked_modules": 17,
+      "checked_ui_assets": 7,
+      "errors": []
+    },
+    "python_package_preflight_tests": {
+      "passed": 28
+    },
+    "mocked_powershell_installer_tests": {
+      "passed": 64
+    }
+  },
+  "operator_acceptance": {
+    "scope": "Underlying identical application and installer on a second Windows 11 x64 computer",
+    "observations": "Operator reported installation, shortcut, USB connection, manual-spin recording and save succeeded.",
+    "attribution": "User-performed observations; no agent installer, GUI, USB, or recording actions.",
+    "public1_revision": "License/documentation/metadata revision; no repeated physical check required."
+  }
+}
