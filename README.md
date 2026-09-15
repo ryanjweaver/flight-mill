@@ -6,6 +6,16 @@ Flight Mill connects over USB, records accepted revolutions with device timestam
 and saves raw CSV data with metadata, protocol logs and integrity information.
 The desktop provides trial setup, a live trace, an archive and a simulator.
 
+## See Flight Mill
+
+![Flight Mill trial workspace with trial setup, live flight trace and acquisition controls](docs/media/flightmill-main.png)
+
+### Simulation in action
+
+![A live simulated flight trace with changing speed, distance and revolution count](docs/media/flightmill-simulation.gif)
+
+*Built-in simulation with synthetic data, shown at its original speed.*
+
 ## Install on Windows
 
 Download the **Windows installer ZIP** from [Releases](https://github.com/ryanjweaver/flight-mill/releases/tag/v0.2.0-preview.1).
