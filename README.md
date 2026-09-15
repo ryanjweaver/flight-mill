@@ -42,20 +42,6 @@ not require flashing it again.
 Recordings normally go to `Documents\FlightMill\Trials`, separate from the
 installation. The output folder is configurable under Instrument settings.
 
-## Prototype status
-
-This is a research prototype preview, application **0.2.0.dev0** and firmware
-**0.1.5-dev / Protocol 1**. The operator approved the redesigned GUI and ordinary,
-late and guided USB connections. On a second Windows 11 x64 computer, the operator
-reported successful installation, USB connection, and recording/saving of a
-manual-spin test. Those reports are distinct from automated software tests.
-
-The supported prototype uses an ESP32-S3 SuperMini **HW-747 V0.0.2 / FH4R2**,
-4 MB QIO flash, 2 MB QSPI PSRAM and one OPB800W55Z sensor. See
-[wiring and pinout](docs/WIRING_AND_PINOUT.md). Carrier PCB fabrication and
-broader instrument validation are separate work; this repository does not claim
-that a carrier is fabrication-ready.
-
 ## Develop
 
 See the [developer guide](docs/DEVELOPER_GUIDE.md),
